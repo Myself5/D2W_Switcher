@@ -1,4 +1,4 @@
-package myself5.d2wswitcher;
+package myself5.m5_Settings;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

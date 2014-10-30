@@ -1,10 +1,8 @@
-package myself5.d2wswitcher;
+package myself5.m5_Settings;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ToggleButton;
@@ -21,7 +19,7 @@ public class D2W_Switcher extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_d2_w__switcher);
+        setContentView(R.layout.activity_m5_settings);
         // Restore preferences
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         boolean persist = settings.getBoolean("persist", true);
