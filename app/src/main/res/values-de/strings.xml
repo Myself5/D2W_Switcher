@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">M5 Einstellungen</string>
+    <string name="about_d2wS">Diese App wurde Ursprünglich von Christian \'Myself5\' Oder und Shlomy \'sreinst1\' Reinstein zur Benutzung mit dem M5-Kernel erstellt</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="d2w_on">Doubletap to Wake Eingeschalten</string>
+    <string name="d2w_off">Doubletap to Wake Ausgeschalten</string>
+    <string name="persist">D2W Einstellungen beibehalten (nach Neustart)</string>
+</resources>

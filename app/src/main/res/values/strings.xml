@@ -6,5 +6,5 @@
     <string name="action_settings">Settings</string>
     <string name="d2w_on">Doubletap to Wake Enabled</string>
     <string name="d2w_off">Doubletap to Wake Disabled</string>
-    <string name="persist">Persist D2W Settings</string>
+    <string name="persist">Persist D2W Settings (after Reboot)</string>
 </resources>
