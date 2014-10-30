@@ -86,7 +86,7 @@ public class D2W_Switcher extends Activity {
         BufferedReader D2WReader = new BufferedReader(fr);
         int D2W_VALUE = D2WReader.read();
         boolean d2w_boolean;
-        if (D2W_VALUE == 1) {
+        if (D2W_VALUE == 49) {
             d2w_boolean = true;
         }else {
             d2w_boolean = false;

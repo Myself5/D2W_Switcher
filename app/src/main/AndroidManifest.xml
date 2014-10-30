@@ -16,7 +16,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".ApplyD2W" android:label="Apply D2W">
+            <intent-filter>
+                <action android:name="myself5.d2wswitcher.ApplyD2W" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name=".receiver.D2WApplyatBoot"
+            android:enabled="true"
+            android:exported="true"
+            android:label="D2WApplyatBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
     </application>
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest>
