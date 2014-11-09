@@ -19,7 +19,7 @@ public class D2WApplyatBoot extends BroadcastReceiver {
             if (persist){
                 if (d2w_persisted){
                     try {
-                        Runtime.getRuntime().exec(new String[] { "su", "-c", "echo 1 > /sys/android_touch/doubletap2wake"});
+                        Runtime.getRuntime().exec(new String[] { "su", "-c", "echo enabled > /sys/devices/virtual/input/max1187x/power/wakeup"});
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

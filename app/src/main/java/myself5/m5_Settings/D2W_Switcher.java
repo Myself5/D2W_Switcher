@@ -3,13 +3,18 @@ package myself5.m5_Settings;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ToggleButton;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 
 public class D2W_Switcher extends Activity {
@@ -79,14 +84,12 @@ public class D2W_Switcher extends Activity {
     **/
 
     public boolean d2wValue() throws IOException{
-        String d2w_path = "/sys/android_touch/doubletap2wake";
-        FileReader fr = new FileReader(d2w_path);
-        BufferedReader D2WReader = new BufferedReader(fr);
-        int D2W_VALUE = D2WReader.read();
+        String d2w_path = "/sys/devices/virtual/input/max1187x/power/wakeup";
+        String D2W_VALUE = readFromFile(d2w_path);
         boolean d2w_boolean;
-        if (D2W_VALUE == 49) {
+        if (D2W_VALUE == "enabled") {
             d2w_boolean = true;
-        }else {
+        }else{
             d2w_boolean = false;
         }
         return d2w_boolean;
@@ -98,10 +101,39 @@ public class D2W_Switcher extends Activity {
         if (d2w_on)
         {
             //Enable D2W
-            Runtime.getRuntime().exec(new String[] { "su", "-c", "echo 1 > /sys/android_touch/doubletap2wake"});
+            Runtime.getRuntime().exec(new String[] { "su", "-c", "echo enabled > /sys/devices/virtual/input/max1187x/power/wakeup"});
         }else{
             //Disable D2W
-            Runtime.getRuntime().exec(new String[] { "su", "-c", "echo 0 > /sys/android_touch/doubletap2wake"});
+            Runtime.getRuntime().exec(new String[] { "su", "-c", "echo disabled > /sys/devices/virtual/input/max1187x/power/wakeup"});
         }
+    }
+    private String readFromFile(String file) {
+
+        String ret = "";
+
+        try {
+            InputStream inputStream = openFileInput(file);
+
+            if ( inputStream != null ) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString = "";
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+            }
+        }
+        catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
+
+        return ret;
     }
 }

@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">M5 Settings</string>
-    <string name="about_d2wS">This App has originally been created by Christian \'Myself5\' Oder and Shlomy \'sreinst1\' Reinstein for use with M5-Kernel</string>
+    <string name="about_d2wS">This App has originally been created by Christian \'Myself5\' Oder with the help of Shlomy \'sreinst1\' Reinstein for use with M5-Kernel. \n Thanks to Damian \'pixeldotz\' Deaucali for creating the Icon!</string>
     <string name="action_settings">Settings</string>
     <string name="d2w_on">Doubletap to Wake Enabled</string>
     <string name="d2w_off">Doubletap to Wake Disabled</string>
