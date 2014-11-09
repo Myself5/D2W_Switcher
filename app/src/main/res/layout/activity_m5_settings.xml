@@ -19,12 +19,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="74dp" />
 
-    <CheckBox android:id="@+id/checkbox_persist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/persist"
-        android:layout_below="@+id/togglebutton_d2w"
-        android:layout_centerHorizontal="true" />
+    <!--<CheckBox android:id="@+id/checkbox_persist"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="@string/persist"-->
+        <!--android:layout_below="@+id/togglebutton_d2w"-->
+        <!--android:layout_centerHorizontal="true" />-->
     <TextView
         android:text="@string/about_d2wS"
         android:layout_width="wrap_content"

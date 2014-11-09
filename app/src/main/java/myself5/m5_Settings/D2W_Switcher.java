@@ -22,9 +22,9 @@ public class D2W_Switcher extends Activity {
         setContentView(R.layout.activity_m5_settings);
         // Restore preferences
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        boolean persist = settings.getBoolean("persist", true);
-        ((CheckBox) findViewById(R.id.checkbox_persist)).setChecked(persist);
-        if (persist) {
+//        boolean persist = settings.getBoolean("persist", true);
+//        ((CheckBox) findViewById(R.id.checkbox_persist)).setChecked(persist);
+//        if (persist) {
             boolean d2w_persisted = settings.getBoolean("d2w", true);
             ((ToggleButton) findViewById(R.id.togglebutton_d2w)).setChecked(d2w_persisted);
             try {
@@ -32,13 +32,13 @@ public class D2W_Switcher extends Activity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else {
-            try {
-                ((ToggleButton) findViewById(R.id.togglebutton_d2w)).setChecked(d2wValue());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+//        }else {
+//            try {
+//                ((ToggleButton) findViewById(R.id.togglebutton_d2w)).setChecked(d2wValue());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     protected void onStop() {
@@ -47,12 +47,13 @@ public class D2W_Switcher extends Activity {
         // All objects are from android.context.Context
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean("persist", ((CheckBox) findViewById(R.id.checkbox_persist)).isChecked());
-        try {
-            editor.putBoolean("d2w", d2wValue());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        editor.putBoolean("persist", ((CheckBox) findViewById(R.id.checkbox_persist)).isChecked());
+        editor.putBoolean("d2w", ((ToggleButton) findViewById(R.id.togglebutton_d2w)).isChecked());
+//        try {
+//            editor.putBoolean("d2w", d2wValue());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
         // Commit the edits!
         editor.commit();
     }
@@ -82,9 +83,9 @@ public class D2W_Switcher extends Activity {
         String d2w_path = "/sys/devices/virtual/input/max1187x/power/wakeup";
         FileReader fr = new FileReader(d2w_path);
         BufferedReader D2WReader = new BufferedReader(fr);
-        String D2W_VALUE = D2WReader.readLine();
+        int D2W_VALUE = D2WReader.read();
         boolean d2w_boolean;
-        if (D2W_VALUE.equals("enabled")) {
+        if (D2W_VALUE == 101) {
             d2w_boolean = true;
         }else{
             d2w_boolean = false;

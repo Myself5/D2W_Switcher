@@ -14,9 +14,9 @@ public class D2WApplyatBoot extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
             SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-            boolean persist = settings.getBoolean("persist", true);
+//            boolean persist = settings.getBoolean("persist", true);
             boolean d2w_persisted = settings.getBoolean("d2w", true);
-            if (persist){
+//            if (persist){
                 if (d2w_persisted){
                     try {
                         Runtime.getRuntime().exec(new String[] { "su", "-c", "echo enabled > /sys/devices/virtual/input/max1187x/power/wakeup"});
@@ -24,7 +24,7 @@ public class D2WApplyatBoot extends BroadcastReceiver {
                         e.printStackTrace();
                     }
                 }
-            }
+//            }
         }
     }
 }
