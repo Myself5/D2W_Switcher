@@ -7,4 +7,12 @@
     <string name="d2w_on">Doubletap to Wake Enabled</string>
     <string name="d2w_off">Doubletap to Wake Disabled</string>
     <string name="persist">Persist D2W Settings (after Reboot)</string>
+    <string name="CWM">CWM</string>
+    <string name="TWRP">TWRP</string>
+    <string name="PhilZ">PhilZ Touch</string>
+    <string name="Recovery">Select Recovery to flash:</string>
+    <string name="Flash">Download and Flash</string>
+    <string name="reallyflash">Are you sure you want to Flash ? Make sure you are running a Z2</string>
+    <string name="flashrecovery">Flash!</string>
+    <string name="cancel">Cancel</string>
 </resources>
