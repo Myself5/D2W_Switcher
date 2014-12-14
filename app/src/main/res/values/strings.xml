@@ -12,7 +12,5 @@
     <string name="PhilZ">PhilZ Touch</string>
     <string name="Recovery">Select Recovery to flash:</string>
     <string name="Flash">Download and Flash</string>
-    <string name="reallyflash">Are you sure you want to Flash ? Make sure you are running a Z2</string>
-    <string name="flashrecovery">Flash!</string>
-    <string name="cancel">Cancel</string>
+    <string name="reallyflash">Are you sure you want to Flash? Notice that this only works with a XZ2.</string>
 </resources>

@@ -7,4 +7,10 @@
     <string name="d2w_on">Doubletap to Wake Eingeschalten</string>
     <string name="d2w_off">Doubletap to Wake Ausgeschalten</string>
     <string name="persist">D2W Einstellungen beibehalten (nach Neustart)</string>
+    <string name="CWM">CWM</string>
+    <string name="TWRP">TWRP</string>
+    <string name="PhilZ">PhilZ Touch</string>
+    <string name="Recovery">Recovery zum Flashen auswählen:</string>
+    <string name="Flash">Herunterladen und Flashen</string>
+    <string name="reallyflash">Sicher? Bitte sei dir sicher das dies nur mit einem Sony XZ2 geht.</string>
 </resources>

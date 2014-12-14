@@ -30,40 +30,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:id="@+id/textView"
-        android:layout_alignBottom="@+id/radio_PhilZ"
-        android:layout_marginBottom="56dp"
+        android:id="@+id/Recovery"
+        android:layout_above="@+id/radioGroup"
         android:layout_centerHorizontal="true" />
-
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    </RadioGroup>
-    <RadioButton android:id="@+id/radio_PhilZ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/PhilZ"
-        android:onClick="onRadioButtonClicked"
-        android:layout_marginTop="75dp"
-        android:layout_below="@+id/togglebutton_d2w"
-        android:layout_centerHorizontal="true" />
-
-    <RadioButton android:id="@+id/radio_CWM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/CWM"
-        android:onClick="onRadioButtonClicked"
-        android:layout_alignTop="@+id/radio_PhilZ"
-        android:layout_toStartOf="@+id/togglebutton_d2w" />
-
-    <RadioButton android:id="@+id/radio_TWRP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/TWRP"
-        android:onClick="onRadioButtonClicked"
-        android:layout_toEndOf="@+id/togglebutton_d2w"
-        android:layout_alignTop="@+id/radio_PhilZ" />
 
     <Button
         android:id="@+id/flash"
@@ -71,17 +40,48 @@
         android:layout_height="wrap_content"
         android:text="@string/Flash"
         android:onClick="flashRecovery"
-        android:layout_toEndOf="@+id/radio_CWM"
-        android:layout_below="@+id/radio_PhilZ"
-        android:layout_toStartOf="@+id/radio_TWRP" />
+        android:layout_above="@+id/d2wS"
+        android:layout_marginBottom="111dp"
+        android:layout_alignEnd="@+id/togglebutton_d2w"
+        android:layout_alignStart="@+id/togglebutton_d2w" />
 
     <TextView
         android:text="@string/about_d2wS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="134dp"
         android:gravity="center"
-        android:id="@+id/textView" />
+        android:id="@+id/d2wS"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/radioGroup"
+        android:layout_above="@+id/flash"
+        android:layout_alignParentEnd="true"
+        android:layout_width="fill_parent">
+
+        <RadioButton android:id="@+id/radio_CWM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/CWM"
+            android:onClick="onRadioButtonClicked"
+            android:layout_weight="1" />
+
+        <RadioButton android:id="@+id/radio_PhilZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/PhilZ"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked" />
+
+        <RadioButton android:id="@+id/radio_TWRP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/TWRP"
+            android:onClick="onRadioButtonClicked"
+            android:layout_weight="1" />
+    </RadioGroup>
+
 </RelativeLayout>
