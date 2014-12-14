@@ -14,4 +14,5 @@
     <string name="Download">Herunterladen</string>
     <string name="Flash">Recovery Flashen</string>
     <string name="DownloadDialog">Downloade Recovery</string>
+    <string name="recovery_flashed">Recovery Geflasht!</string>
 </resources>

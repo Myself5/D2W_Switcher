@@ -3,12 +3,15 @@ package myself5.m5_Settings;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import java.io.BufferedInputStream;
@@ -130,6 +133,13 @@ public class M5_Settings extends Activity {
     public void flashRecovery(View view) throws IOException{
         //Flash recovery.img from SDCard
         Runtime.getRuntime().exec(new String[] { "su", "-c", "dd if="+recoverypath+" of=/dev/block/platform/msm_sdcc.1/by-name/FOTAKernel"});
+
+        //Toast Message to confirm flash process
+        Context context = getApplicationContext();
+        CharSequence text = getString(R.string.recovery_flashed);
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     private void downloadFile(String url) {
