@@ -10,7 +10,8 @@
     <string name="CWM">CWM</string>
     <string name="TWRP">TWRP</string>
     <string name="PhilZ">PhilZ Touch</string>
-    <string name="Recovery">Recovery zum Flashen auswählen:</string>
-    <string name="Flash">Herunterladen und Flashen</string>
-    <string name="reallyflash">Sicher? Bitte sei dir sicher das dies nur mit einem Sony XZ2 geht.</string>
+    <string name="Recovery">Recovery zum Downloaden und Flashen auswählen:</string>
+    <string name="Download">Herunterladen</string>
+    <string name="Flash">Recovery Flashen</string>
+    <string name="DownloadDialog">Downloade Recovery</string>
 </resources>

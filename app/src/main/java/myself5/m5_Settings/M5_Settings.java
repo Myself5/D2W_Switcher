@@ -120,11 +120,14 @@ public class M5_Settings extends Activity {
         }
     }
 
-    public void flashRecovery(View view) throws IOException{
+    public void downloadRecovery(View view) throws IOException{
         //Remove old recovery.img
         Runtime.getRuntime().exec(new String[]{"su", "-c", "rm "+recoverypath});
         //Download new recovery.img
         downloadFile("https://raw.githubusercontent.com/Myself5/M5_Settings/master/recovery/"+recovery);
+    }
+
+    public void flashRecovery(View view) throws IOException{
         //Flash recovery.img from SDCard
         Runtime.getRuntime().exec(new String[] { "su", "-c", "dd if="+recoverypath+" of=/dev/block/platform/msm_sdcc.1/by-name/FOTAKernel"});
     }
@@ -138,7 +141,7 @@ public class M5_Settings extends Activity {
         switch (id) {
             case DIALOG_DOWNLOAD_PROGRESS:
                 mProgressDialog = new ProgressDialog(this);
-                mProgressDialog.setMessage("Downloading file..");
+                mProgressDialog.setMessage(getString(R.string.DownloadDialog));
                 mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 mProgressDialog.setCancelable(false);
                 mProgressDialog.show();
