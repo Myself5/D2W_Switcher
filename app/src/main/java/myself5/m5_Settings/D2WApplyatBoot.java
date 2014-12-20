@@ -22,6 +22,13 @@ public class D2WApplyatBoot extends BroadcastReceiver {
                         e.printStackTrace();
                     }
                 }
+
+            // Nasty Hack to close Cam on CM12, as it eats up a lot of CPU and doesn't work.
+            try {
+                Runtime.getRuntime().exec(new String[] { "su", "-c", "pgrep camera | xargs kill"});
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
