@@ -19,12 +19,12 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
     private ProgressDialog mProgressDialog;
     private Activity _activity;
     private String filepath;
-    private String DialogText;
+    private String dialogtext;
 
-    public DownloadFileAsync(Activity a, String path, String DiaText) {
+    public DownloadFileAsync(Activity a, String path, String diatext) {
         filepath = path;
         _activity = a;
-        DialogText = DiaText;
+        dialogtext = diatext;
     }
 
 //    @Override
@@ -46,7 +46,7 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
     protected void onPreExecute() {
         super.onPreExecute();
         mProgressDialog = new ProgressDialog(_activity);
-        mProgressDialog.setMessage(DialogText);
+        mProgressDialog.setMessage(dialogtext);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
