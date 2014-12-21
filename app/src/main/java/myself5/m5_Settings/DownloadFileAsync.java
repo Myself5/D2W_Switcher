@@ -24,24 +24,28 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
     }
 
 //    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case DIALOG_DOWNLOAD_PROGRESS:
-                mProgressDialog = new ProgressDialog(_activity);
-                mProgressDialog.setMessage(_activity.getString(R.string.DownloadDialog));
-                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-                mProgressDialog.setCancelable(false);
-                mProgressDialog.show();
-                return mProgressDialog;
-            default:
-                return null;
-        }
-    }
+//    protected Dialog onCreateDialog(int id) {
+//        switch (id) {
+//            case DIALOG_DOWNLOAD_PROGRESS:
+//                mProgressDialog = new ProgressDialog(_activity);
+//                mProgressDialog.setMessage(_activity.getString(R.string.DownloadDialog));
+//                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+//                mProgressDialog.setCancelable(true);
+//                mProgressDialog.show();
+//                return mProgressDialog;
+//            default:
+//                return null;
+//        }
+//    }
     
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        _activity.showDialog(DIALOG_DOWNLOAD_PROGRESS);
+        mProgressDialog = new ProgressDialog(_activity);
+        mProgressDialog.setMessage(_activity.getString(R.string.DownloadDialog));
+        mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        mProgressDialog.setCancelable(true);
+        mProgressDialog.show();
     }
 
     @Override
