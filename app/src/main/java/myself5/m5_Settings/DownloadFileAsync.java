@@ -15,12 +15,16 @@ import java.net.URLConnection;
 
 public class DownloadFileAsync extends AsyncTask<String, String, String>{
 
-    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
+//    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
     private ProgressDialog mProgressDialog;
     private Activity _activity;
+    private String filepath;
+    private String DialogText;
 
-    public DownloadFileAsync(Activity a) {
+    public DownloadFileAsync(Activity a, String path, String DiaText) {
+        filepath = path;
         _activity = a;
+        DialogText = DiaText;
     }
 
 //    @Override
@@ -42,9 +46,9 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
     protected void onPreExecute() {
         super.onPreExecute();
         mProgressDialog = new ProgressDialog(_activity);
-        mProgressDialog.setMessage(_activity.getString(R.string.DownloadDialog));
+        mProgressDialog.setMessage(DialogText);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        mProgressDialog.setCancelable(true);
+        mProgressDialog.setCancelable(false);
         mProgressDialog.show();
     }
 
@@ -62,7 +66,7 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
             Log.d("ANDRO_ASYNC", "Lenght of file: " + lenghtOfFile);
 
             InputStream input = new BufferedInputStream(url.openStream());
-            OutputStream output = new FileOutputStream(M5_Settings.recoverypath);
+            OutputStream output = new FileOutputStream(filepath);
 
             byte data[] = new byte[1024];
 
@@ -89,6 +93,9 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
 
     @Override
     protected void onPostExecute(String unused) {
-        _activity.dismissDialog(DIALOG_DOWNLOAD_PROGRESS);
+        mProgressDialog.dismiss();
+    }
+    public static void downloadFile(Activity activ, String text, String path, String url) {
+        new DownloadFileAsync(activ, path, text).execute(url);
     }
 }

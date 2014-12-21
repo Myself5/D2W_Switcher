@@ -108,7 +108,7 @@ public class M5_Settings extends Activity {
         //Remove old recovery.img
         Runtime.getRuntime().exec(new String[]{"su", "-c", "rm "+recoverypath});
         //Download new recovery.img
-        downloadFile("https://raw.githubusercontent.com/Myself5/M5_Settings/master/recovery/"+recovery);
+        DownloadFileAsync.downloadFile(this, getString(R.string.DownloadDialog), recoverypath, "https://raw.githubusercontent.com/Myself5/M5_Settings/master/recovery/"+recovery);
     }
 
     public void flashRecovery(View view) throws IOException{
@@ -121,9 +121,5 @@ public class M5_Settings extends Activity {
         int duration = Toast.LENGTH_LONG;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
-    }
-
-    private void downloadFile(String url) {
-        new DownloadFileAsync(this).execute(url);
     }
 }
