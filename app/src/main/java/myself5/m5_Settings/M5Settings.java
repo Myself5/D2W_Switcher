@@ -108,7 +108,7 @@ public class M5Settings extends Activity {
         //Remove old recovery.img
         Runtime.getRuntime().exec(new String[]{"su", "-c", "rm "+recoverypath});
         //Download new recovery.img
-        DownloadFileAsync.downloadFile(this, getString(R.string.DownloadDialog), recoverypath, "https://raw.githubusercontent.com/Myself5/M5Settings/master/recovery/"+recovery);
+        DownloadFileAsync.downloadFile(this, getString(R.string.DownloadDialog), recoverypath, "https://raw.githubusercontent.com/Myself5/M5_Settings/master/recovery/"+recovery);
     }
 
     public void flashRecovery(View view) throws IOException{
