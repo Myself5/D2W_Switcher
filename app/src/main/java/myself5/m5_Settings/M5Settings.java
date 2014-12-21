@@ -1,32 +1,22 @@
 package myself5.m5_Settings;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.URL;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.URLConnection;
 
 
 public class M5Settings extends Activity {
 
     public static final String PREFS_NAME = "M5D2WSwitcherPrefs";
-    String recovery;
-    public static final String recoverypath = "/ext_card/recovery.img";
+    String _recovery;
+    public static final String _recoveryPath = "/ext_card/recovery.img";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,29 +81,29 @@ public class M5Settings extends Activity {
         switch (view.getId()) {
             case R.id.radio_TWRP:
                 if (checked)
-                    recovery = "twrp.img";
+                    _recovery = "twrp.img";
                 break;
             case R.id.radio_PhilZ:
                 if (checked)
-                    recovery = "philz.img";
+                    _recovery = "philz.img";
                 break;
             case R.id.radio_CWM:
                 if (checked)
-                    recovery = "cwm.img";
+                    _recovery = "cwm.img";
                 break;
         }
     }
 
     public void downloadRecovery(View view) throws IOException{
         //Remove old recovery.img
-        Runtime.getRuntime().exec(new String[]{"su", "-c", "rm "+recoverypath});
+        Runtime.getRuntime().exec(new String[]{"su", "-c", "rm "+ _recoveryPath});
         //Download new recovery.img
-        DownloadFileAsync.downloadFile(this, getString(R.string.DownloadDialog), recoverypath, "https://raw.githubusercontent.com/Myself5/M5_Settings/master/recovery/"+recovery);
+        DownloadFileAsync.downloadFile(this, getString(R.string.DownloadDialog), _recoveryPath, "https://raw.githubusercontent.com/Myself5/M5_Settings/master/recovery/"+ _recovery);
     }
 
     public void flashRecovery(View view) throws IOException{
         //Flash recovery.img from SDCard
-        Runtime.getRuntime().exec(new String[] { "su", "-c", "dd if="+recoverypath+" of=/dev/block/platform/msm_sdcc.1/by-name/FOTAKernel"});
+        Runtime.getRuntime().exec(new String[] { "su", "-c", "dd if="+ _recoveryPath +" of=/dev/block/platform/msm_sdcc.1/by-name/FOTAKernel"});
 
         //Toast Message to confirm flash process
         Context context = getApplicationContext();

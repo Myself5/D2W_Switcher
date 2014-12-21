@@ -1,7 +1,6 @@
 package myself5.m5_Settings;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -18,13 +17,13 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
 //    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
     private ProgressDialog mProgressDialog;
     private Activity _activity;
-    private String filepath;
-    private String dialogtext;
+    private String _filepath;
+    private String _dialogtext;
 
     public DownloadFileAsync(Activity a, String path, String diatext) {
-        filepath = path;
+        _filepath = path;
         _activity = a;
-        dialogtext = diatext;
+        _dialogtext = diatext;
     }
 
 //    @Override
@@ -46,7 +45,7 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
     protected void onPreExecute() {
         super.onPreExecute();
         mProgressDialog = new ProgressDialog(_activity);
-        mProgressDialog.setMessage(dialogtext);
+        mProgressDialog.setMessage(_dialogtext);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
@@ -66,7 +65,7 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
             Log.d("ANDRO_ASYNC", "Lenght of file: " + lenghtOfFile);
 
             InputStream input = new BufferedInputStream(url.openStream());
-            OutputStream output = new FileOutputStream(filepath);
+            OutputStream output = new FileOutputStream(_filepath);
 
             byte data[] = new byte[1024];
 
