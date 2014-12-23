@@ -24,4 +24,7 @@
     <string name="About_D2W">Hier kannst du Double Tap to Wake ein oder ausschalten.</string>
     <string name="d2w_enabled">D2W Eingeschalten!</string>
     <string name="d2w_disabled">D2W Ausgeschalten!</string>
+    <string name="reboot_recovery">Neustart in Recovery</string>
+    <string name="reboot_bootloader">Neustart in Bootloader</string>
+    <string name="rebooting">Neustart!</string>
 </resources>
