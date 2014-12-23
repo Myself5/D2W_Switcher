@@ -49,14 +49,17 @@ public class Recovery extends Fragment implements View.OnClickListener{
         boolean cwm_recovery = settings.getBoolean("recovery_CWM", true);
         if (cwm_recovery) {
             ((RadioButton) _myFragmentView.findViewById(R.id.radio_CWM)).setChecked(cwm_recovery);
+            _recovery = "cwm.img";
         }
         boolean philz_recovery = settings.getBoolean("recovery_PhilZ", true);
         if (philz_recovery) {
             ((RadioButton) _myFragmentView.findViewById(R.id.radio_PhilZ)).setChecked(philz_recovery);
+            _recovery = "philz.img";
         }
         boolean twrp_recovery = settings.getBoolean("recovery_TWRP", true);
         if (twrp_recovery) {
             ((RadioButton) _myFragmentView.findViewById(R.id.radio_TWRP)).setChecked(twrp_recovery);
+            _recovery = "twrp.img";
         }
         //Add the Buttons to the OnClick Listener
         Button flash = (Button) _myFragmentView.findViewById(R.id.flash_button);
