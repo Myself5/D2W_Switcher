@@ -9,7 +9,8 @@
         android:textOn="@string/d2w_on"
         android:textOff="@string/d2w_off"
         android:layout_marginTop="74dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:theme="@style/ButtonTheme"/>
 
     <TextView
         android:text="@string/About_D2W"

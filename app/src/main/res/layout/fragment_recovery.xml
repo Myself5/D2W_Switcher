@@ -19,7 +19,8 @@
         android:text="@string/Download"
         android:layout_below="@+id/radioGroup"
         android:layout_alignEnd="@+id/flash_button"
-        android:layout_alignStart="@+id/flash_button" />
+        android:layout_alignStart="@+id/flash_button"
+        android:theme="@style/ButtonTheme"/>
 
     <Button
         android:id="@+id/flash_button"
@@ -27,7 +28,8 @@
         android:layout_height="wrap_content"
         android:text="@string/Flash"
         android:layout_below="@+id/download_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:theme="@style/ButtonTheme"/>
 
     <Button
         android:id="@+id/reboot_recovery"
@@ -37,7 +39,8 @@
         android:layout_below="@+id/flash_button"
         android:layout_marginTop="64dp"
         android:layout_alignStart="@+id/reboot_bootloader"
-        android:layout_alignEnd="@+id/reboot_bootloader" />
+        android:layout_alignEnd="@+id/reboot_bootloader"
+        android:theme="@style/ButtonTheme"/>
 
     <Button
         android:id="@+id/reboot_bootloader"
@@ -45,7 +48,8 @@
         android:layout_height="wrap_content"
         android:text="@string/reboot_bootloader"
         android:layout_below="@+id/reboot_recovery"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:theme="@style/ButtonTheme"/>
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
