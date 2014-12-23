@@ -4,13 +4,15 @@ package myself5.m5_settings;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
+import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
+
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +29,8 @@ import android.widget.ListView;
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment {
+
+    private DrawerArrowDrawable drawerArrow;
 
     /**
      * Remember the position of the selected item.
@@ -130,12 +134,19 @@ public class NavigationDrawerFragment extends Fragment {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
+        drawerArrow = new DrawerArrowDrawable(getActivity()) {
+            @Override
+            public boolean isLayoutRtl() {
+                return false;
+            }
+        };
+
         // ActionBarDrawerToggle ties together the the proper interactions
         // between the navigation drawer and the action bar app icon.
         mDrawerToggle = new ActionBarDrawerToggle(
                 getActivity(),                    /* host Activity */
                 mDrawerLayout,                    /* DrawerLayout object */
-                R.drawable.ic_drawer,             /* nav drawer image to replace 'Up' caret */
+                drawerArrow,                      /* ActionBar Arrow */
                 R.string.navigation_drawer_open,  /* "open drawer" description for accessibility */
                 R.string.navigation_drawer_close  /* "close drawer" description for accessibility */
         ) {
