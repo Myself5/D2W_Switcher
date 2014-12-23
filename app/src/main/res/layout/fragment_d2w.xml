@@ -1,0 +1,21 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="myself5.m5_settings.D2W">
+
+    <ToggleButton
+        android:id="@+id/togglebutton_d2w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="@string/d2w_on"
+        android:textOff="@string/d2w_off"
+        android:layout_marginTop="74dp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:text="@string/About_D2W"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/About_D2W"
+        android:layout_gravity="center_horizontal|bottom" />
+</FrameLayout>

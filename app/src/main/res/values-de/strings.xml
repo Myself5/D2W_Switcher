@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="title_d2w">Doubletap to Wake</string>
+    <string name="title_recovery">Recovery Tools</string>
+    <string name="menu_about">Über</string>
+    <string name="navigation_drawer_open">Öffne Navigation Drawer</string>
+    <string name="navigation_drawer_close">Schließe Navigation Drawer</string>
     <string name="app_name">M5 Einstellungen</string>
-    <string name="about_d2wS">Diese App wurde ursprünglich von Christian \'Myself5\' Oder mit der Hilfe von Shlomy \'sreinst1\' Reinstein zur Benutzung mit dem M5-Kernel erstellt.  \n Vielen Dank an Damian \'pixeldotz\' Deaucali für das Icon!</string>
+    <string name="about_M5S">Diese App wurde ursprünglich von Christian \'Myself5\' Oder mit der Hilfe von Shlomy \'sreinst1\' Reinstein zur Benutzung mit dem M5-Kernel erstellt.  \n Vielen Dank an Damian \'pixeldotz\' Deaucali für das Icon!</string>
     <string name="action_settings">Einstellungen</string>
     <string name="d2w_on">Doubletap to Wake Eingeschalten</string>
     <string name="d2w_off">Doubletap to Wake Ausgeschalten</string>
@@ -15,4 +20,8 @@
     <string name="Flash">Recovery Flashen</string>
     <string name="DownloadDialog">Downloade Recovery</string>
     <string name="recovery_flashed">Recovery Geflasht!</string>
+    <string name="About_Recovery">Hier kannst du deine bevorzugte Recovery Downloaden und Flashed. ACHTUNG: Dies funktioniert im Moment nur mit dem Z2.</string>
+    <string name="About_D2W">Hier kannst du Double Tap to Wake ein oder ausschalten.</string>
+    <string name="d2w_enabled">D2W Eingeschalten!</string>
+    <string name="d2w_disabled">D2W Ausgeschalten!</string>
 </resources>

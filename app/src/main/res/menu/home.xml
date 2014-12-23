@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".Home">
+    <item android:id="@+id/menu_about" android:title="@string/menu_about"
+        android:orderInCategory="100" android:showAsAction="never" />
+</menu>

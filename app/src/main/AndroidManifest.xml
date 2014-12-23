@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="myself5.m5_Settings" >
+    package="myself5.m5_settings" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".M5Settings"
+            android:name="myself5.m5_settings.Home"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,9 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <receiver
-            android:name=".D2WApplyatBoot"
+            android:name="myself5.m5_settings.D2WApplyatBoot"
             android:enabled="true"
             android:exported="true"
             android:label="D2WApplyatBoot">
@@ -26,7 +25,14 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
+        <activity
+            android:name="myself5.m5_settings.About"
+            android:label="@string/menu_about"
+            android:parentActivityName="myself5.m5_settings.Home" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="myself5.m5_settings.Home" />
+        </activity>
     </application>
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />

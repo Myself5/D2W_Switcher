@@ -1,4 +1,4 @@
-package myself5.m5_Settings;
+package myself5.m5_settings;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
