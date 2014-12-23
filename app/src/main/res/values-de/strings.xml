@@ -8,7 +8,6 @@
     <string name="navigation_drawer_close">Schließe Navigation Drawer</string>
     <string name="app_name">M5 Einstellungen</string>
     <string name="about_M5S">Diese App wurde ursprünglich von Christian \'Myself5\' Oder mit der Hilfe von Shlomy \'sreinst1\' Reinstein zur Benutzung mit dem M5-Kernel erstellt.  \n Vielen Dank an Damian \'pixeldotz\' Deaucali für das Icon!</string>
-    <string name="action_settings">Einstellungen</string>
     <string name="d2w_on">Doubletap to Wake Eingeschalten</string>
     <string name="d2w_off">Doubletap to Wake Ausgeschalten</string>
     <string name="persist">D2W Einstellungen beibehalten (nach Neustart)</string>

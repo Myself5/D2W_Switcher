@@ -63,6 +63,10 @@ public class Recovery extends Fragment implements View.OnClickListener{
         flash.setOnClickListener(this);
         Button download = (Button) _myFragmentView.findViewById(R.id.download_button);
         download.setOnClickListener(this);
+        Button reboot_recovery = (Button) _myFragmentView.findViewById(R.id.reboot_recovery);
+        reboot_recovery.setOnClickListener(this);
+        Button reboot_bootloader = (Button) _myFragmentView.findViewById(R.id.reboot_bootloader);
+        reboot_bootloader.setOnClickListener(this);
         RadioButton cwm = (RadioButton) _myFragmentView.findViewById(R.id.radio_CWM);
         cwm.setOnClickListener(this);
         RadioButton philz = (RadioButton) _myFragmentView.findViewById(R.id.radio_PhilZ);
@@ -139,6 +143,20 @@ public class Recovery extends Fragment implements View.OnClickListener{
                     e.printStackTrace();
                 }
                 break;
+            case R.id.reboot_recovery:
+                try {
+                    reboot("recovery");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.reboot_bootloader:
+                try {
+                    reboot("bootloader");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
             case R.id.radio_TWRP:
                     _recovery = "twrp.img";
                 break;
@@ -165,6 +183,17 @@ public class Recovery extends Fragment implements View.OnClickListener{
         //Toast Message to confirm flash process
         Context context = this.getActivity().getApplicationContext();
         CharSequence text = getString(R.string.recovery_flashed);
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    public void reboot(String modus) throws IOException{
+        Runtime.getRuntime().exec(new String[]{"su", "-c", "reboot "+ modus});
+
+        //Toast Message to tell user it's rebooting
+        Context context = this.getActivity().getApplicationContext();
+        CharSequence text = getString(R.string.rebooting);
         int duration = Toast.LENGTH_LONG;
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();

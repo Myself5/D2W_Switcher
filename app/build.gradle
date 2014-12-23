@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "myself5.m5_settings_reworked"
+        applicationId "myself5.m5_settings"
         minSdkVersion 21
         targetSdkVersion 21
         versionCode 1
