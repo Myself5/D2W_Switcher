@@ -26,4 +26,11 @@
     <string name="reboot_recovery">Neustart in Recovery</string>
     <string name="reboot_bootloader">Neustart in Bootloader</string>
     <string name="rebooting">Neustart!</string>
+    <string name="not_supported">Gerät nicht unterstützt!</string>
+    <string name="about_donate">Wenn ihr meine Entwicklungen am Leben erhalten wollt, überlegt euch bitte eine kleine Spende zu leisten.</string>
+    <string name="donate_dialog">Du wirst nun zu meiner PayPal Spendenseite weitergeleitet. Vielen Dank!</string>
+    <string name="not_now">Ich möchte doch nicht Spenden :(</string>
+    <string name="donate_now">Ok!</string>
+    <string name="load_url">Lade Spendenlink mit:</string>
+    <string name="d2w_device_not_supported">Sorry, D2W von diesem Gerät wird noch nicht unterstützt.</string>
 </resources>

@@ -16,22 +16,22 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
 
 //    public static final int DIALOG_DOWNLOAD_PROGRESS = 0;
     private ProgressDialog mProgressDialog;
-    private Activity _activity;
-    private String _filepath;
-    private String _dialogtext;
+    private Activity mActivity;
+    private String mFilepath;
+    private String mDialogtext;
 
-    public DownloadFileAsync(Activity a, String path, String diatext) {
-        _filepath = path;
-        _activity = a;
-        _dialogtext = diatext;
+    public DownloadFileAsync(Activity a, String path, String dialogtext) {
+        mFilepath = path;
+        mActivity = a;
+        mDialogtext = dialogtext;
     }
 
 //    @Override
 //    protected Dialog onCreateDialog(int id) {
 //        switch (id) {
 //            case DIALOG_DOWNLOAD_PROGRESS:
-//                mProgressDialog = new ProgressDialog(_activity);
-//                mProgressDialog.setMessage(_activity.getString(R.string.DownloadDialog));
+//                mProgressDialog = new ProgressDialog(mActivity);
+//                mProgressDialog.setMessage(mActivity.getString(R.string.DownloadDialog));
 //                mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 //                mProgressDialog.setCancelable(true);
 //                mProgressDialog.show();
@@ -44,8 +44,8 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        mProgressDialog = new ProgressDialog(_activity);
-        mProgressDialog.setMessage(_dialogtext);
+        mProgressDialog = new ProgressDialog(mActivity);
+        mProgressDialog.setMessage(mDialogtext);
         mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         mProgressDialog.setCancelable(false);
         mProgressDialog.show();
@@ -65,7 +65,7 @@ public class DownloadFileAsync extends AsyncTask<String, String, String>{
             Log.d("ANDRO_ASYNC", "Lenght of file: " + lenghtOfFile);
 
             InputStream input = new BufferedInputStream(url.openStream());
-            OutputStream output = new FileOutputStream(_filepath);
+            OutputStream output = new FileOutputStream(mFilepath);
 
             byte data[] = new byte[1024];
 

@@ -7,7 +7,7 @@
     <string name="menu_about">About</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="about_M5S">This App has originally been created by Christian \'Myself5\' Oder with the help of Shlomy \'sreinst1\' Reinstein for use with M5-Kernel. \n Thanks to Damian \'pixeldotz\' Deaucali for creating the Icon!</string>
+    <string name="about_M5S">This App has originally been created by Christian \'Myself5\' Oder with the help of Shlomy \'sreinst1\' Reinstein for use with M5 Kernel. \n Thanks to Damian \'pixeldotz\' Deaucali for creating the Icon!</string>
     <string name="d2w_on">Doubletap to Wake Enabled</string>
     <string name="d2w_off">Doubletap to Wake Disabled</string>
     <string name="persist">Persist D2W Settings (after Reboot)</string>
@@ -26,4 +26,12 @@
     <string name="reboot_recovery">Reboot to Recovery</string>
     <string name="reboot_bootloader">Reboot to Bootloader</string>
     <string name="rebooting">Rebooting Now!</string>
+    <string name="property_device" translatable="false">ro.product.device</string>
+    <string name="not_supported">Device not supported!</string>
+    <string name="about_donate">If you want to keep the Development ongoing, please consider a Donation.</string>
+    <string name="donate_dialog">You are now getting forwarded to my PayPal Donation Page. Thank you very much.</string>
+    <string name="not_now">No, I don\'t want to donate :(</string>
+    <string name="donate_now">Ok!</string>
+    <string name="load_url">Open Donation URL with:</string>
+    <string name="d2w_device_not_supported">Sorry, this devices D2W is not yet supported.</string>
 </resources>

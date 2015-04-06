@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 
 import java.io.IOException;
 
+import eu.chainfire.libsuperuser.Shell;
+
 public class D2WApplyatBoot extends BroadcastReceiver {
 
     public static final String PREFS_NAME = "M5SettingsPrefs";
@@ -17,19 +19,8 @@ public class D2WApplyatBoot extends BroadcastReceiver {
             SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
             boolean d2w_persisted = settings.getBoolean("d2w", true);
                 if (d2w_persisted){
-                    try {
-                        Runtime.getRuntime().exec(new String[] { "su", "-c", "echo enabled > /sys/devices/virtual/input/max1187x/power/wakeup"});
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                        Shell.SU.run("echo enabled > /sys/devices/virtual/input/max1187x/power/wakeup");
                 }
-
-            // Nasty Hack to close Cam on CM12, as it eats up a lot of CPU and doesn't work.
-            try {
-                Runtime.getRuntime().exec(new String[] { "su", "-c", "pgrep camera | xargs kill"});
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 }

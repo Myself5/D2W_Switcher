@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "myself5.m5_settings"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -23,4 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.ikimuhendis:ldrawer:0.1'
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'eu.chainfire:libsuperuser:1.0.0.+'
 }

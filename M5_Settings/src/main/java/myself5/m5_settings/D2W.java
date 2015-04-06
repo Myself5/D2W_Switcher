@@ -15,6 +15,8 @@ import android.widget.ToggleButton;
 
 import java.io.IOException;
 
+import eu.chainfire.libsuperuser.Shell;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,7 +27,8 @@ import java.io.IOException;
 public class D2W extends Fragment implements View.OnClickListener{
 
     public static final String PREFS_NAME = "M5SettingsPrefs";
-    private View _myFragmentView;
+    private View mMyFragmentView;
+    private String mDevice;
     private OnFragmentInteractionListener mListener;
 
     public D2W() {
@@ -40,22 +43,31 @@ public class D2W extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        mDevice = android.os.Build.DEVICE;
+        if(mDevice.equals("sirius") || mDevice.equals("D6503") || mDevice.equals("D6502") || mDevice.equals("D6506") || mDevice.equals("D6543")) {
+            mDevice = "sirius";
+        }else if(mDevice.equals("z3") || mDevice.equals("leo") || mDevice.equals("D6603") || mDevice.equals("D6602") || mDevice.equals("D6606") || mDevice.equals("D6643")){
+            mDevice = "z3";
+        }else{
+            mDevice = "not_supported";
+        }
+
         // Inflate the layout for this fragment
-        _myFragmentView = inflater.inflate(R.layout.fragment_d2w, container, false);
+        mMyFragmentView = inflater.inflate(R.layout.fragment_d2w, container, false);
 
         // Restore preferences
         SharedPreferences settings = this.getActivity().getSharedPreferences(PREFS_NAME, 0);
         boolean d2w_persisted = settings.getBoolean("d2w", true);
-        ((ToggleButton) _myFragmentView.findViewById(R.id.togglebutton_d2w)).setChecked(d2w_persisted);
+        ((ToggleButton) mMyFragmentView.findViewById(R.id.togglebutton_d2w)).setChecked(d2w_persisted);
 //        try {
-//            d2wToggleClicked(_myFragmentView.findViewById(R.id.togglebutton_d2w));
+//            d2wToggleClicked(mMyFragmentView.findViewById(R.id.togglebutton_d2w));
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
         //Add the Buttons to the OnClick Listener
-        Button d2wt = (Button) _myFragmentView.findViewById(R.id.togglebutton_d2w);
+        Button d2wt = (Button) mMyFragmentView.findViewById(R.id.togglebutton_d2w);
         d2wt.setOnClickListener(this);
-        return _myFragmentView;
+        return mMyFragmentView;
     }
 
 
@@ -77,16 +89,20 @@ public class D2W extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onStop(){
-        super.onStop();
+    public void onPause(){
+        super.onPause();
         // We need an Editor object to make preference changes.
         // All objects are from android.context.Context
         SharedPreferences settings = this.getActivity().getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
-        editor.putBoolean("d2w", ((ToggleButton) _myFragmentView.findViewById(R.id.togglebutton_d2w)).isChecked());
+        editor.putBoolean("d2w", ((ToggleButton) mMyFragmentView.findViewById(R.id.togglebutton_d2w)).isChecked());
         // Commit the edits!
         editor.apply();
     }
+//    @Override
+//    public void onStop(){
+//        super.onStop();
+//    }
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -118,16 +134,19 @@ public class D2W extends Fragment implements View.OnClickListener{
         boolean d2w_on = ((ToggleButton) view).isChecked();
         if (d2w_on) {
             //Enable D2W
-            Runtime.getRuntime().exec(new String[]{"su", "-c", "echo enabled > /sys/devices/virtual/input/max1187x/power/wakeup"});
-            //Toast Message to confirm D2W is enabled
-            Context context = this.getActivity().getApplicationContext();
-            CharSequence text = getString(R.string.d2w_enabled);
-            int duration = Toast.LENGTH_LONG;
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            if(mDevice.equals("sirius")) {
+                Shell.SU.run("echo enabled > /sys/devices/virtual/input/max1187x/power/wakeup");
+                showToast(getString(R.string.d2w_enabled));
+            }else if(mDevice.equals("z3")){
+                Shell.SU.run("echo 1 > /sys/devices/virtual/input/clearpad/wakeup_gesture");
+                showToast(getString(R.string.d2w_enabled));
+            }else{
+                showToast(getString(R.string.d2w_device_not_supported));
+            }
         } else {
             //Disable D2W
-            Runtime.getRuntime().exec(new String[]{"su", "-c", "echo disabled > /sys/devices/virtual/input/max1187x/power/wakeup"});
+            Shell.SU.run("echo disabled > /sys/devices/virtual/input/max1187x/power/wakeup");
+            Shell.SU.run("echo 0 > /sys/devices/virtual/input/clearpad/wakeup_gesture");
             //Toast Message to confirm D2W is disabled
             Context context = this.getActivity().getApplicationContext();
             CharSequence text = getString(R.string.d2w_disabled);
@@ -135,5 +154,12 @@ public class D2W extends Fragment implements View.OnClickListener{
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+    }
+    public void showToast(String message){
+        //Toast Message to confirm D2W is enabled
+        Context context = this.getActivity().getApplicationContext();
+        int duration = Toast.LENGTH_LONG;
+        Toast toast = Toast.makeText(context, message, duration);
+        toast.show();
     }
 }
